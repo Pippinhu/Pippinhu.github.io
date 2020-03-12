@@ -179,6 +179,28 @@
 </article>
 
 
+<div id="gitalk-container"></div>
+
+// 引入 gitalk
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+// 引入 MD5 加密算法
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '7ec13425d38a4b67f407',
+      clientSecret: 'da0826c728a0c6658e527ce0da09f2b56a6da67b',
+      repo: 'blog-comments',
+      owner: 'Pippinhu',
+      admin: 'Pippinhu',
+      id: md5(location.pathname),   // 这里需要注意！稍后会说
+      createIssueManually: 'true',
+      distractionFreeMode: 'false'
+    });
+
+    gitalk.render('gitalk-container');
+</script>
 
         
           <div id="footer-post-container">
