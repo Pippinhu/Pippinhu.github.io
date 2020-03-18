@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="函数有了，现在就只差“对象”了。  今天来讲每一个代码英雄都必须拥有的基本装备：函数。 函数就像你的微型智能设备（比小爱还好使），简单，快捷。你把你想要执行的动作写在函数里，仅仅呼叫她的名字，它就自动完成你想要实现的动作。 当然鉴于在不同情况下呼叫她，所需要的某些指令是不同的，这个时候就需要一个参数。 参数就是一个小盒子，你需要发布什么特别的指令，你就把指令放进小盒子里。 这个小盒子必须要和整个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="趣说javascript 基础 - 函数">
+<meta property="og:title" content="趣说javascript - 函数">
 <meta property="og:url" content="http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Pippin&#39;s Fairy Land">
 <meta property="og:description" content="函数有了，现在就只差“对象”了。  今天来讲每一个代码英雄都必须拥有的基本装备：函数。 函数就像你的微型智能设备（比小爱还好使），简单，快捷。你把你想要执行的动作写在函数里，仅仅呼叫她的名字，它就自动完成你想要实现的动作。 当然鉴于在不同情况下呼叫她，所需要的某些指令是不同的，这个时候就需要一个参数。 参数就是一个小盒子，你需要发布什么特别的指令，你就把指令放进小盒子里。 这个小盒子必须要和整个">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-06-25T12:46:25.000Z">
-<meta property="article:modified_time" content="2020-03-18T15:07:35.013Z">
+<meta property="article:modified_time" content="2020-03-18T15:10:42.572Z">
 <meta property="article:author" content="Pippin">
 <meta name="twitter:card" content="summary">
     
@@ -36,7 +36,7 @@
         
     
     <!-- title -->
-    <title>趣说javascript 基础 - 函数</title>
+    <title>趣说javascript - 函数</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -93,16 +93,16 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&text=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&is_video=false&description=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=趣说javascript 基础 - 函数&body=Check out this article: http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&name=趣说javascript 基础 - 函数&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&t=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&text=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&is_video=false&description=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=趣说javascript - 函数&body=Check out this article: http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&name=趣说javascript - 函数&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&t=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -119,7 +119,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        趣说javascript 基础 - 函数
+        趣说javascript - 函数
     </h1>
 
 
@@ -225,16 +225,16 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&text=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&is_video=false&description=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=趣说javascript 基础 - 函数&body=Check out this article: http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&name=趣说javascript 基础 - 函数&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&t=趣说javascript 基础 - 函数" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&text=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&is_video=false&description=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=趣说javascript - 函数&body=Check out this article: http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&title=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&name=趣说javascript - 函数&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2019/06/25/%E8%B6%A3%E8%AF%B4javascript%20%E5%9F%BA%E7%A1%80%20-%20%E5%87%BD%E6%95%B0/&t=趣说javascript - 函数" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
