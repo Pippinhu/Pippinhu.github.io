@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="深入探讨Object看OReilly版的JavaScript权威指南，感觉特别累╭(╯3╰)╮然后我在Youtube上找了个视频《Programming with Mosh》，通俗易懂多了。下面是主要是来自视频的学习笔记。 4 Pillars of Object-oriented Programing Encapsulation：翻译成中文就是封装性。如果和Procedural Programmi">
+    <meta name="description" content="深入探讨 Object看OReilly版的JavaScript权威指南，感觉特别累╭(╯3╰)╮然后我在Youtube上找了个视频《Programming with Mosh》，通俗易懂多了。下面是主要是来自视频的学习笔记。 4 Pillars of Object-oriented Programing Encapsulation：翻译成中文就是封装性。如果和Procedural Programm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入探讨Object">
 <meta property="og:url" content="http://yoursite.com/2020/03/18/%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%AE%A8Object/index.html">
 <meta property="og:site_name" content="Pippin&#39;s Fairy Land">
-<meta property="og:description" content="深入探讨Object看OReilly版的JavaScript权威指南，感觉特别累╭(╯3╰)╮然后我在Youtube上找了个视频《Programming with Mosh》，通俗易懂多了。下面是主要是来自视频的学习笔记。 4 Pillars of Object-oriented Programing Encapsulation：翻译成中文就是封装性。如果和Procedural Programmi">
+<meta property="og:description" content="深入探讨 Object看OReilly版的JavaScript权威指南，感觉特别累╭(╯3╰)╮然后我在Youtube上找了个视频《Programming with Mosh》，通俗易懂多了。下面是主要是来自视频的学习笔记。 4 Pillars of Object-oriented Programing Encapsulation：翻译成中文就是封装性。如果和Procedural Programm">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blog-1258441037.cos.ap-chengdu.myqcloud.com/2020/03/18/1.png">
 <meta property="og:image" content="https://blog-1258441037.cos.ap-chengdu.myqcloud.com/2020/03/18/2.png">
@@ -49,7 +49,7 @@
 <meta property="og:image" content="https://blog-1258441037.cos.ap-chengdu.myqcloud.com/2020/03/18/34.png">
 <meta property="og:image" content="https://blog-1258441037.cos.ap-chengdu.myqcloud.com/2020/03/18/35.png">
 <meta property="article:published_time" content="2020-03-18T14:23:26.719Z">
-<meta property="article:modified_time" content="2020-03-18T14:24:38.591Z">
+<meta property="article:modified_time" content="2020-03-18T14:44:07.378Z">
 <meta property="article:author" content="Pippin">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog-1258441037.cos.ap-chengdu.myqcloud.com/2020/03/18/1.png">
@@ -143,7 +143,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#深入探讨Object"><span class="toc-number">1.</span> <span class="toc-text">深入探讨Object</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Pillars-of-Object-oriented-Programing"><span class="toc-number">1.1.</span> <span class="toc-text">4 Pillars of Object-oriented Programing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fundamental-Concepts-of-Objects"><span class="toc-number">1.2.</span> <span class="toc-text">Fundamental Concepts of Objects:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#creating-objects"><span class="toc-number">1.2.1.</span> <span class="toc-text">creating objects:</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#深入探讨-Object"><span class="toc-number">1.</span> <span class="toc-text">深入探讨 Object</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Pillars-of-Object-oriented-Programing"><span class="toc-number">1.1.</span> <span class="toc-text">4 Pillars of Object-oriented Programing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fundamental-Concepts-of-Objects"><span class="toc-number">1.2.</span> <span class="toc-text">Fundamental Concepts of Objects:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#creating-objects"><span class="toc-number">1.2.1.</span> <span class="toc-text">creating objects:</span></a></li></ol></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -182,7 +182,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="深入探讨Object"><a href="#深入探讨Object" class="headerlink" title="深入探讨Object"></a>深入探讨Object</h1><p>看OReilly版的JavaScript权威指南，感觉特别累╭(╯3╰)╮然后我在Youtube上找了个视频《Programming with Mosh》，通俗易懂多了。下面是主要是来自视频的学习笔记。</p>
+    <h1 id="深入探讨-Object"><a href="#深入探讨-Object" class="headerlink" title="深入探讨 Object"></a>深入探讨 Object</h1><p>看OReilly版的JavaScript权威指南，感觉特别累╭(╯3╰)╮然后我在Youtube上找了个视频《Programming with Mosh》，通俗易懂多了。下面是主要是来自视频的学习笔记。</p>
 <h2 id="4-Pillars-of-Object-oriented-Programing"><a href="#4-Pillars-of-Object-oriented-Programing" class="headerlink" title="4 Pillars of Object-oriented Programing"></a>4 Pillars of Object-oriented Programing</h2><ol>
 <li><em>Encapsulation</em>：翻译成中文就是封装性。如果和Procedural Programming做比较的话，前者是各种函数和变量堆积，杂乱无章。Objected-Oriented Programming 则是把函数和变量各自整理到一块儿，对于收纳癖来说，实在和他对应的变量就是一个unit. </li>
 </ol>
@@ -349,7 +349,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#深入探讨Object"><span class="toc-number">1.</span> <span class="toc-text">深入探讨Object</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Pillars-of-Object-oriented-Programing"><span class="toc-number">1.1.</span> <span class="toc-text">4 Pillars of Object-oriented Programing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fundamental-Concepts-of-Objects"><span class="toc-number">1.2.</span> <span class="toc-text">Fundamental Concepts of Objects:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#creating-objects"><span class="toc-number">1.2.1.</span> <span class="toc-text">creating objects:</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#深入探讨-Object"><span class="toc-number">1.</span> <span class="toc-text">深入探讨 Object</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Pillars-of-Object-oriented-Programing"><span class="toc-number">1.1.</span> <span class="toc-text">4 Pillars of Object-oriented Programing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fundamental-Concepts-of-Objects"><span class="toc-number">1.2.</span> <span class="toc-text">Fundamental Concepts of Objects:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#creating-objects"><span class="toc-number">1.2.1.</span> <span class="toc-text">creating objects:</span></a></li></ol></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
