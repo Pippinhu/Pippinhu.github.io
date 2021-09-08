@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>趣说javascript - construct | Pippin&#39;s Fairy Land</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Pippin">
+  <meta name="keywords" content="">
+  <meta name="description" content="广阔天地，大有作为">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.3.9',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: 'null'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Pippin's Fairy Land" type="application/atom+xml">
+</head>
+<body>
+<div class="single">
+
+<div id="page">
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/post_cover.jpeg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/avatar.jpeg"></a></div>
+    <span>2019-08-13</span>
+    <h2>趣说javascript...</h2>
+    
+    </div>
+</div>
+</div>
+
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <blockquote>
+<p>constructor 是函数的高级形态。为啥高级？因为他的命名可以大写。</p>
+</blockquote>
+<p>说正经的，主要是高级在它本身就是模具（别人家的孩子）。你可以随意照着它的样子，再创造（new)一个对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Wife()&#123;</span><br><span class="line">    this.eyes&#x3D;‘big’</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>假如老婆是一个函数，而且你希望她是个大眼萌妹。</p>
+<p>这时候，照着「老婆」的模板，给你自己造一个老婆，名字叫Ellen 那就直接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const ellen&#x3D;new Wife()</span><br></pre></td></tr></table></figure>
+
+<p>这个时候的Ellen就是你的理想型大眼老婆。</p>
+<p>以此类比，我们可以造出无数个大眼老婆。</p>
+<p>当然并不是所有人都想要大眼老婆，有些人可能想要丹凤眼。</p>
+<p>那么我们就可以这样，给一个自由选择的参数：eyes</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Wife(eyes)&#123;</span><br><span class="line">    this.eyes&#x3D;eyes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创造你心中大（小）眼老婆</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Lisa&#x3D;new Wife(&#39;Single-edged eyelid&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>这时候，你可能要问this是个啥？用语言描述太抽象，我们直接用魔法镜console，把它照出来！</p>
+<ol>
+<li>在construct函数内部console.log(this)</li>
+</ol>
+<p><img src="https://blog-1258441037.cos.ap-chengdu.myqcloud.com/2020/03/18/15845420014828.jpg" alt=""></p>
+<ul>
+<li><p>当你没有创造老婆的时候，你console.log(this)啥反应都没有</p>
+</li>
+<li><p>当你创造了老婆Ellen的时候，你console.log(this)，就会和console.log(ellen)出来的东西一模一样</p>
+</li>
+</ul>
+<p><img src="https://blog-1258441037.cos.ap-chengdu.myqcloud.com/2020/03/18/15845420223950.jpg" alt=""></p>
+<ul>
+<li>当你创造了2个老婆之后，他就会把你创造的2个老婆都整出来。</li>
+</ul>
+<p><img src="https://blog-1258441037.cos.ap-chengdu.myqcloud.com/2020/03/18/15845420326059.jpg" alt=""></p>
+<ol start="2">
+<li>在construct函数外部console.log(this) this 就变成了windows</li>
+</ol>
+<p>所以this比较像是函数小宇宙环境内部盘点。在全局情况下，就会盘点window环境下的各种对象、方法。在你自己构造的函数内部就会呈现你所创造出的函数。</p>
+<p>回到创造老婆的话题，对老婆的要求不能仅仅是眼睛大，肯定还有别的要求，那就累加参数吧：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function Wife(eyes,legs,skin)&#123;</span><br><span class="line">    this.eyes&#x3D;eyes;</span><br><span class="line">    this.legs&#x3D;legs;</span><br><span class="line">    this.skin&#x3D;skin;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以你在创造老婆的时候，需要设定的参数也更多</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Lisa&#x3D;new Wife(&#39;Single-edged eyelid&#39;,&#39;long&#39;,&#39;white&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>当你console.log(Lisa.skin) 时就会得到：</p>
+<p>除此之外还可以加入更复杂的函数来描述你想象中的wife。在此就先不举🌰了。</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/09/29/%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%AE%A8Object/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>来啊，我们聊聊...</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-r.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/07/15/%E8%B6%A3%E8%AF%B4javascript%E5%9F%BA%E7%A1%80%20-%20if/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>趣说javas...</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Pippin's Fairy Land</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
+
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/avatar.jpeg" alt="Pippin"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>Pippin</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+
+
+</body>
+</html>

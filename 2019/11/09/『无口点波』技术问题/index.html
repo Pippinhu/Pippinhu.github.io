@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>不奇怪的小知识增加了——关于音乐播放小程序 | Pippin&#39;s Fairy Land</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Pippin">
+  <meta name="keywords" content="">
+  <meta name="description" content="广阔天地，大有作为">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '0.3.9',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: 'null'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Pippin's Fairy Land" type="application/atom+xml">
+</head>
+<body>
+<div class="single">
+
+<div id="page">
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/post_cover.jpeg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/avatar.jpeg"></a></div>
+    <span>2019-11-09</span>
+    <h2>不奇怪的小知识增加了——...</h2>
+    
+    </div>
+</div>
+</div>
+
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <p>2月无口的开发进度还是比较慢的，前期想练习父子组件传递，结果一个简单的页面写了很多莫名其妙的组件……最后又重新整合在一起了。</p>
+<p>中间也出现了一些小问题，我把纠结之后，想到的解决方法列在这里。</p>
+<h3 id="给按钮加标识"><a href="#给按钮加标识" class="headerlink" title="给按钮加标识"></a>给按钮加标识</h3><p>同一个页面，点某一个按钮播放，其他按钮的状态都跟着变</p>
+<p>我后来把播放按钮直接提到首页，结果点第一首歌的播放按钮，页面上其他歌曲的按钮状态也跟者变。这是因为我之前循环的时候按钮都是由一个变量showPlay来统一控制状态。</p>
+<p>于是我就想到给按钮加一个index标识。列表循环的时候每个item都有单独的按钮状态。但……需要你在后台数据库给这个字段加上默认值TRUE OR FALSE。（隐隐觉得这种处理方式有问题。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">image</span> @<span class="attr">click</span>=<span class="string">"playMusic(index)"</span> <span class="attr">:src</span>=<span class="string">"item.showPlay?iconPlay:iconPause"</span><span class="attr">class</span>=<span class="string">"play-icon"</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span>`</span><br></pre></td></tr></table></figure>
+
+<p>触发播放事件，只有当前index的playIcon变量才会发生变化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.index=index</span><br><span class="line"><span class="keyword">const</span> audio = wx.getBackgroundAudioManager();</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">this</span>.list[index].showPlay)&#123;</span><br><span class="line">  audio.src=<span class="keyword">this</span>.list[index].url;</span><br><span class="line">  audio.autoplay = <span class="literal">true</span>;</span><br><span class="line">  audio.title=<span class="keyword">this</span>.list[index].abstract</span><br><span class="line">  <span class="keyword">this</span>.list[index].showPlay=<span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    audio.pause();</span><br><span class="line">    <span class="keyword">this</span>.list[index].showPlay=<span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="参数-常量"><a href="#参数-常量" class="headerlink" title="参数+常量"></a>参数+常量</h3><p>之前用很复杂的方式去写：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`<span class="tag">&lt;<span class="name">image</span> @<span class="attr">click</span>=<span class="string">"playMusic(index)"</span> <span class="attr">:src</span>=<span class="string">"'/static/'+item.showPlay?'play-icon.png':'stop-icon.png'"</span><span class="attr">class</span>=<span class="string">"play-icon"</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span>`</span><br></pre></td></tr></table></figure>
+
+<p>后来把常量彻底放在后面，参数放在最前面，然后地址绑定在DATA里，就显得简洁很多了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">image</span> @<span class="attr">click</span>=<span class="string">"playMusic(index)"</span> <span class="attr">:src</span>=<span class="string">"item.showPlay?iconPlay:iconPause"</span><span class="attr">class</span>=<span class="string">"play-icon"</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">  <span class="keyword">return</span>&#123;</span><br><span class="line">    radius:<span class="string">"50%"</span>,</span><br><span class="line">    list:[],</span><br><span class="line">    index:<span class="string">''</span>,</span><br><span class="line">    iconPause:<span class="string">'../../static/pause.png'</span>,</span><br><span class="line">    iconPlay:<span class="string">'../../static/play.png'</span>,</span><br><span class="line">    play: <span class="literal">false</span>,</span><br><span class="line">    pause: <span class="literal">false</span>,</span><br><span class="line">    stop: <span class="literal">true</span>,</span><br><span class="line">  &#125;;			</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
+<li><p>backgroundImage 接网络图片格式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:style="&#123;backgroundImage:'url(' + item.img + ')'&#125;`</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过:id=index来给每个点击增加index。当然也可以通过给click传入index参数。<code>@click=&quot;playMusic(index)&quot;</code></p>
+</li>
+<li><p>不加autoplay就没法儿播放</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">innerAudioContext.autoplay = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>学到了一个高级函数</p>
+</li>
+</ol>
+<p>some() ：<br>The some() method checks if any of the elements in an array pass a test (provided as a function). … If it finds an array element where the function returns a true value, some() returns true (and does not check the remaining values) Otherwise it returns false.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/02/09/%E3%80%8E%E5%A5%BD%E6%9C%89%E7%BC%98%E3%80%8F%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93&amp;%E9%97%AE%E9%A2%98/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>超简单小程序助...</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-r.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2019/09/29/%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%AE%A8Object/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>来啊，我们聊聊...</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Pippin's Fairy Land</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
+
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/avatar.jpeg" alt="Pippin"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>Pippin</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+
+
+</body>
+</html>
